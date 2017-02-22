@@ -83,10 +83,18 @@ public class CapteurImpl implements Capteur {
     @Override
     public void setStrategy(TypeDiffusion typeDeDiff){
         System.out.println(" dans strategy "+typeDeDiff.toString());
-
+        strategy  = null;
         switch (typeDeDiff){
             case Sequentiel: strategy = new SequentielDiffusion(this);
                             break;
+            case Atomique:
+                this.compteur =100;
+                strategy = new SequentielDiffusion(this);
+                            break;
+            case Epoque:
+                this.compteur = 1000;
+                strategy = new SequentielDiffusion(this);
+                break;
             default:
                     System.out.println("hello");
         }
