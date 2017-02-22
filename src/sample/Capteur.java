@@ -11,7 +11,7 @@ public interface Capteur{
     int getValue();
     void tick();
 
-    void setTypeDeDiffu(TypeDiffusion type);
+    void setTypeDeDiffusion(TypeDiffusion type);
 
 
 }

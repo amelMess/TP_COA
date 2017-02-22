@@ -68,9 +68,6 @@ public class Afficheur {
 
     }
 
-    public TypeDiffusion getTypeDeDiffusion(){
-        return controllerIHM.getType();
-    }
 
     /**
      * recupere le type de diffusion selectionnée

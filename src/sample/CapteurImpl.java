@@ -73,13 +73,12 @@ public class CapteurImpl implements Capteur {
                 }
             }
         };
-
         timer.scheduleAtFixedRate(task, new Date(), (long) delai);
 
     }
 
     @Override
-    public void setTypeDeDiffu(TypeDiffusion type) {
+    public void setTypeDeDiffusion(TypeDiffusion type) {
         this.typeDeDiff = type;
         System.out.println(type.toString());
     }

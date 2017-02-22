@@ -54,7 +54,7 @@
                <fx:define>
                     <ToggleGroup fx:id="typeDiffusion" />
                </fx:define>
-               <RadioButton fx:id="sequenciel" mnemonicParsing="false" prefHeight="26.0" prefWidth="126.0" text="Sequentielle" textFill="WHITE" toggleGroup="$typeDiffusion" selected="true">
+               <RadioButton fx:id="sequentiel" mnemonicParsing="false" prefHeight="26.0" prefWidth="126.0" text="Sequentielle" textFill="WHITE" toggleGroup="$typeDiffusion" selected="true">
 
                </RadioButton>
                <RadioButton fx:id="atomique" mnemonicParsing="false" prefHeight="26.0" prefWidth="100.0" text="Atomique" textFill="WHITE" toggleGroup="$typeDiffusion" GridPane.columnIndex="2">
