@@ -19,8 +19,6 @@ public class Afficheur {
 
     private ControllerIHM controllerIHM;
 
-
-
     private CapteurAsynch canal;
 
     private Capteur capteur;
@@ -75,7 +73,7 @@ public class Afficheur {
     }
 
     /**
-     * recupere le type de diffusion selectionne
+     * recupere le type de diffusion selectionnée
      * @param typeDiffusion le type de diffusion
      */
     public void setTypeDiffusion(TypeDiffusion typeDiffusion) {
