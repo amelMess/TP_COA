@@ -1,13 +1,22 @@
 package sample;
 
+import java.util.Locale;
 import java.util.concurrent.Callable;
 
 /**
  * Created by messadene on 17/01/17.
  */
 public class GetValue implements Callable {
+
+    private Capteur capteur;
+
+    public GetValue(Capteur capteur){
+        this.capteur = capteur;
+    }
+
     @Override
-    public Object call() throws Exception {
-        return null;
+    public Integer call() throws Exception {
+       // System.out.println("g "+capteur.getValue());
+        return capteur.getValue();
     }
 }

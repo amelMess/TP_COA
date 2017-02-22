@@ -1,6 +1,7 @@
 package sample;
 
 import java.util.*;
+import java.util.concurrent.Future;
 
 /**
  * Created by messadene on 17/01/17.
@@ -8,5 +9,5 @@ import java.util.*;
 public interface ObserverDeCapteurAsynch {
 
 
-    void update(Capteur o);
+    Future<Integer> update(Capteur capteur);
 }

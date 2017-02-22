@@ -6,8 +6,9 @@ package sample;
  */
 public interface Capteur{
 
-    void attach(Observer o);
-    void detach(Observer o);
+    void attach(ObserverDeCapteurAsynch o);
+    void detach(ObserverDeCapteurAsynch o);
     int getValue();
     void tick();
+
 }

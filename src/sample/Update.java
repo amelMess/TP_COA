@@ -7,11 +7,18 @@ import java.util.concurrent.Callable;
  */
 public class Update implements Callable {
 
-    Afficheur afficheur = new Afficheur();
+   private Afficheur afficheur;
+
+
+    public Update(Afficheur afficheur){
+        this.afficheur = afficheur;
+    }
 
     @Override
     public Object call() throws Exception {
-        //afficheur.update();
+        //System.out.println("u");
+
+        this.afficheur.update();
         return null;
     }
 }

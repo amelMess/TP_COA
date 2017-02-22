@@ -1,18 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.TabPane?>
-<?import javafx.scene.layout.Pane?>
-
-<?import javafx.scene.effect.Blend?>
-<?import java.awt.Font?>
 <?import javafx.scene.control.Label?>
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.112-ea" xmlns:fx="http://javafx.com/fxml/1">
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #252553;" xmlns="http://javafx.com/javafx/8.0.112-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ControllerIHM">
    <children>
-      <TabPane layoutX="38.0" layoutY="43.0" prefHeight="82.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE"  />
-       <Label fx:id="text" alignment="CENTER" disable="true" layoutX="94.0" layoutY="34.0" prefHeight="75.0" prefWidth="130.0" textFill="#9a4949">
+       <Label fx:id="afficheur1" alignment="CENTER" disable="true" layoutX="85.0" layoutY="183.0" prefHeight="75.0" prefWidth="130.0" style="-fx-background-color: #ffffff;" textFill="#010101">
 
            <effect>
                <Blend mode="COLOR_BURN" />
-           </effect></Label>
+           </effect>
+         <font>
+            <Font size="15.0" />
+         </font></Label>
+      <Label fx:id="afficheur2" alignment="CENTER" disable="true" layoutX="85.0" layoutY="301.0" prefHeight="75.0" prefWidth="130.0" style="-fx-background-color: #ffffff;" textFill="#010101">
+         <effect>
+            <Blend mode="COLOR_BURN" />
+         </effect>
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="capteur" alignment="CENTER" disable="true" layoutX="85.0" layoutY="38.0" prefHeight="75.0" prefWidth="130.0" style="-fx-background-color: #ffffff;" textFill="#010101">
+         <effect>
+            <Blend mode="COLOR_BURN" />
+         </effect>
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
    </children>
 </Pane>

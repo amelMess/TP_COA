@@ -1,35 +1,44 @@
 package sample;
 
+import java.util.Observable;
+import java.util.concurrent.Future;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
+
 /**
  * Created by messadene on 17/01/17.
  */
-public class Canal implements CapteurAsynch, ObserverDeCapteurAsynch {
+public class Canal implements CapteurAsynch, ObserverDeCapteurAsynch{
 
-    SchedulerExecutorService s = new SchedulerExecutorServiceImpl();
+    private Capteur capteur;
+    ScheduledExecutorService scheduler;
+    private Afficheur afficheur;
 
-    @Override
-    public void update(Capteur o) {
-        Update update = new Update();
-        s.schedule(update,500);
+    /**
+     * constructeur
+     * @param capteur
+     * @param afficheur
+     */
+    public Canal(Capteur capteur, Afficheur afficheur, ScheduledExecutorService scheduler){
+        this.capteur = capteur;
+        this.afficheur = afficheur;
+        this.capteur.attach(this);
+        this.scheduler = scheduler;
     }
 
     @Override
-    public void attach(Observer o) {
-
+    public Future<Integer> update(Capteur capteur) {
+        this.capteur = capteur;
+        Update update = new Update(afficheur);
+        return scheduler.schedule(update,500, TimeUnit.MILLISECONDS);
     }
+
 
     @Override
-    public void detach(Observer o) {
-
+    public Future<Integer> getValue() {
+        GetValue getValue = new GetValue(capteur);
+        return scheduler.schedule(getValue,500,TimeUnit.MILLISECONDS);
     }
 
-    @Override
-    public int getValue() {
-        return 0;
-    }
 
-    @Override
-    public void tick() {
-
-    }
 }

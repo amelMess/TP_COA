@@ -1,17 +1,14 @@
 package sample;
 
+import java.util.concurrent.Future;
+
 /**
- * Created by messadene on 23/01/17.
+ * Created by messadene on 21/02/17.
  */
 public interface CapteurAsynch {
 
-    public void attach(Observer o);
-
-    public void detach(Observer o);
 
 
-    public int getValue();
+     Future<Integer> getValue();
 
-
-    public void tick();
 }
