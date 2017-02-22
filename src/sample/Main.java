@@ -31,7 +31,7 @@ public class Main extends Application {
         capteur.tick();
         primaryStage.setOnCloseRequest(x -> System.exit(0));
         primaryStage.setTitle("Hello MINA");
-        primaryStage.setScene(new Scene(root, 500, 475));
+        primaryStage.setScene(new Scene(root, 450, 475));
         primaryStage.show();
 
     }
