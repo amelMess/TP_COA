@@ -9,7 +9,7 @@ public class EpoqueDiffusion implements AlgoDeDiffusion {
 
 
     @Override
-    public void diffuser(List<ObserverDeCapteurAsynch> observersC) {
+    public void diffuser() {
 
     }
 }

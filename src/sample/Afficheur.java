@@ -75,6 +75,6 @@ public class Afficheur {
      */
     public void setTypeDiffusion(TypeDiffusion typeDiffusion) {
         System.out.println("dans afficheur "+typeDiffusion.toString());
-        this.capteur.setTypeDeDiffu(typeDiffusion);
+        this.capteur.setTypeDeDiffusion(typeDiffusion);
     }
 }

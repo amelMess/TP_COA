@@ -1,5 +1,7 @@
 package sample;
 
+import java.awt.event.ActionListener;
+
 /**
  * Created by messadene on 22/02/17.
  */
@@ -18,5 +20,8 @@ public enum TypeDiffusion {
 
     public String toString(){
         return name;
+    }
+
+    public void addActionListener(ActionListener actionListener) {
     }
 }

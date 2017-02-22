@@ -78,7 +78,6 @@ public class ControllerIHM {
                     afficheur.setTypeDiffusion(TypeDiffusion.Sequentiel);
                 } else if (atomique.isSelected()) {
                     afficheur.setTypeDiffusion(TypeDiffusion.Atomique);
-
                 } else if (epoque.isSelected()) {
                     afficheur.setTypeDiffusion(TypeDiffusion.Epoque);
                 }

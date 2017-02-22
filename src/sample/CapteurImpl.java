@@ -1,6 +1,8 @@
 package sample;
 
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.*;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
@@ -33,6 +35,7 @@ public class CapteurImpl implements Capteur {
     private List<ObserverDeCapteurAsynch> observersC;
     private TypeDiffusion typeDeDiff;
 
+    private AlgoDeDiffusion strategy;
 
     public CapteurImpl(){
         this.compteur = 0;
@@ -78,9 +81,45 @@ public class CapteurImpl implements Capteur {
     }
 
     @Override
+    public void setStrategy(TypeDiffusion typeDeDiff){
+        System.out.println(" dans strategy "+typeDeDiff.toString());
+
+        switch (typeDeDiff){
+            case Sequentiel: strategy = new SequentielDiffusion(this);
+                            break;
+            default:
+                    System.out.println("hello");
+        }
+        strategy.diffuser();
+        System.out.println(" strategy "+strategy.toString());
+    }
+
+    @Override
     public void setTypeDeDiffusion(TypeDiffusion type) {
+
         this.typeDeDiff = type;
+        setStrategy(this.typeDeDiff);
         System.out.println(type.toString());
+    }
+
+    @Override
+    public void setCompteur() {
+        this.compteur++;
+    }
+
+    @Override
+    public int getDelai() {
+        return this.delai;
+    }
+
+    @Override
+    public TypeDiffusion getTypeDiffusion() {
+        return typeDeDiff;
+    }
+
+    @Override
+    public List<ObserverDeCapteurAsynch> getObservers() {
+        return observersC;
     }
 
 }

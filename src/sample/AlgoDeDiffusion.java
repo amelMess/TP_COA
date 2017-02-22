@@ -7,5 +7,5 @@ import java.util.List;
  */
 public interface AlgoDeDiffusion {
 
-    void diffuser(List<ObserverDeCapteurAsynch> observersC);
+    void diffuser();
 }

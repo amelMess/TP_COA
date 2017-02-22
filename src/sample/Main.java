@@ -33,7 +33,9 @@ public class Main extends Application {
         //canal1.update(capteur);
         //canal2.update(capteur);
 
-        capteur.tick();
+        //capteur.tick();
+        TypeDiffusion type = TypeDiffusion.Sequentiel;
+        capteur.setStrategy(type);
         primaryStage.setOnCloseRequest(x -> System.exit(0));
         primaryStage.setTitle("Hello MINA");
         primaryStage.setScene(new Scene(root, 450, 475));
