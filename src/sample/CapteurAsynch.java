@@ -11,5 +11,4 @@ public interface CapteurAsynch {
 
      Future<Integer> getValue();
 
-    Capteur.TypeDiffusion getTypeDeDiffusion();
 }

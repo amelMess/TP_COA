@@ -25,6 +25,12 @@ public class Afficheur {
 
     private Capteur capteur;
 
+    /**
+     * constructeur
+     * @param controllerIHM controlleur de la vue
+     * @param capteur
+     * @param scheduler
+     */
     public Afficheur(ControllerIHM controllerIHM, Capteur capteur, ScheduledExecutorService scheduler) {
         this.controllerIHM = controllerIHM;
         this.canal = new Canal(capteur,this,scheduler);
@@ -32,9 +38,11 @@ public class Afficheur {
 
     }
 
+    /**
+     * met a jour la valeur dans les labels
+     */
     public void update()  {
-        //text.setText((int) newVal.doubleValue() + "");
-       // c.getValue();
+
         Future<Integer> value = this.canal.getValue();
         int valeur = 0;
         try {
@@ -47,19 +55,31 @@ public class Afficheur {
 
         int finalValeur = valeur;
         int valeurCapteur = capteur.getValue();
+
         Platform.runLater(() -> {
 
            // System.out.println(this.controllerIHM);
-            this.controllerIHM.getAfficheur1().setText(String.valueOf(finalValeur));
-            this.controllerIHM.getAfficheur2().setText(String.valueOf(finalValeur));
             this.controllerIHM.getCapteur().setText(String.valueOf(valeurCapteur));
+            this.controllerIHM.getAfficheur1().setText(String.valueOf(finalValeur));
+
+        });
+        Platform.runLater(() ->{
+            this.controllerIHM.getAfficheur2().setText(String.valueOf(finalValeur));
 
         });
 
     }
 
-    public Capteur.TypeDiffusion getTypeDeDiffusion(){
+    public TypeDiffusion getTypeDeDiffusion(){
         return controllerIHM.getType();
     }
 
+    /**
+     * recupere le type de diffusion selectionne
+     * @param typeDiffusion le type de diffusion
+     */
+    public void setTypeDiffusion(TypeDiffusion typeDiffusion) {
+        System.out.println("dans afficheur "+typeDiffusion.toString());
+        this.capteur.setTypeDeDiffu(typeDiffusion);
+    }
 }

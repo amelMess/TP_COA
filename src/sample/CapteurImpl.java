@@ -54,7 +54,7 @@ public class CapteurImpl implements Capteur {
     @Override
     public int getValue() {
        // System.out.println(compteur);
-        System.out.println("type "+typeDeDiff);
+       // System.out.println("type "+typeDeDiff);
         return compteur;
     }
 
@@ -79,8 +79,9 @@ public class CapteurImpl implements Capteur {
     }
 
     @Override
-    public TypeDiffusion setTypeDeDiffu(TypeDiffusion type) {
-        return this.typeDeDiff = canal.getTypeDeDiffusion();
+    public void setTypeDeDiffu(TypeDiffusion type) {
+        this.typeDeDiff = type;
+        System.out.println(type.toString());
     }
 
 }

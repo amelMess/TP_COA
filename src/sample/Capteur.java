@@ -11,8 +11,7 @@ public interface Capteur{
     int getValue();
     void tick();
 
-    TypeDiffusion setTypeDeDiffu(TypeDiffusion type);
+    void setTypeDeDiffu(TypeDiffusion type);
 
-    enum TypeDiffusion{sequentiel, atomique, epoque};
 
 }

@@ -9,13 +9,15 @@ import javafx.scene.control.Toggle;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.AnchorPane;
 
+import java.util.concurrent.ScheduledExecutorService;
+
 /**
  * Created by messadene on 21/02/17.
  */
 public class ControllerIHM {
 
 
-   
+
 
     @FXML
     private Label afficheur1;
@@ -38,23 +40,37 @@ public class ControllerIHM {
     @FXML
     private RadioButton epoque;
 
-    private Capteur.TypeDiffusion type;
+    private TypeDiffusion type;
 
-    public void initialize() {
+    private Afficheur a;
+
+    /**
+     * 
+     * @param capteur
+     * @param scheduler
+     */
+    public void initialize(Capteur capteur, ScheduledExecutorService scheduler) {
+        this.a = new Afficheur(this,capteur,scheduler);
         typeDiffusion.selectedToggleProperty().addListener((ov, old_toggle, new_toggle) -> {
 
             if (typeDiffusion.getSelectedToggle() != null) {
                 if (sequenciel.isSelected()) {
-                    setTypeDiffusion(Capteur.TypeDiffusion.sequentiel);
+                    a.setTypeDiffusion(TypeDiffusion.Sequentiel);
+                    this.type = TypeDiffusion.Sequentiel;
                 } else if (atomique.isSelected()) {
-                    setTypeDiffusion(Capteur.TypeDiffusion.atomique);
+                    type = TypeDiffusion.Atomique;
+                    a.setTypeDiffusion(TypeDiffusion.Atomique);
+
                 } else if (epoque.isSelected()) {
-                    setTypeDiffusion(Capteur.TypeDiffusion.epoque);
+                    a.setTypeDiffusion(TypeDiffusion.Epoque);
+                    type = TypeDiffusion.Epoque;
                 }
             }
+            //System.out.println("le type dans controllerIHm "+type.toString());
 
         });
-        System.out.println("le type dans controllerIHm "+getType());
+        //System.out.println(type.toString());
+       // System.out.println(sequenciel.isSelected());
     }
     public Label getAfficheur1() {
         return afficheur1;
@@ -66,11 +82,12 @@ public class ControllerIHM {
 
     public Label getCapteur() {return capteur; }
 
-    public void setTypeDiffusion(Capteur.TypeDiffusion type){
-        this.type = type;
+
+    public TypeDiffusion getType(){
+        return type;
     }
 
-    public Capteur.TypeDiffusion getType(){
-        return type;
+    public Afficheur getAfficheur() {
+        return a;
     }
 }

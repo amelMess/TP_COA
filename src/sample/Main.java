@@ -18,15 +18,18 @@ public class Main extends Application {
         FXMLLoader loader = new FXMLLoader();
         AnchorPane root = loader.load(getClass().getClassLoader().getResource("resources/sample.fxml").openStream());
         ControllerIHM controllerIHM = loader.getController();
-        controllerIHM.initialize();
         Capteur capteur = new CapteurImpl();
         ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(5);
-        Afficheur afficheur1 = new Afficheur(controllerIHM,capteur,scheduler);
-        Afficheur afficheur2 = new Afficheur(controllerIHM,capteur,scheduler);
+        controllerIHM.initialize(capteur,scheduler);
+
+       // Afficheur afficheur1 = new Afficheur(controllerIHM,capteur,scheduler);
+        //Afficheur afficheur2 = new Afficheur(controllerIHM,capteur,scheduler);
+       // Afficheur afficheur1 = controllerIHM.getAfficheur();
+       // Afficheur afficheur2 = controllerIHM.getAfficheur();
         /*capteur.attach(afficheur1.getCanal());
         capteur.attach(afficheur2.getCanal());*/
-        Canal canal1 =  new Canal(capteur,afficheur1,scheduler);
-        Canal canal2 =  new Canal(capteur,afficheur2,scheduler);
+      //  Canal canal1 =  new Canal(capteur,afficheur1,scheduler);
+       // Canal canal2 =  new Canal(capteur,afficheur2,scheduler);
         //canal1.update(capteur);
         //canal2.update(capteur);
 
