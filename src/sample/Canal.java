@@ -40,5 +40,10 @@ public class Canal implements CapteurAsynch, ObserverDeCapteurAsynch{
         return scheduler.schedule(getValue,500,TimeUnit.MILLISECONDS);
     }
 
+    @Override
+    public Capteur.TypeDiffusion getTypeDeDiffusion() {
+       return afficheur.getTypeDeDiffusion();
+    }
+
 
 }

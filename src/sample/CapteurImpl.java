@@ -31,6 +31,7 @@ public class CapteurImpl implements Capteur {
      * liste des observer de capteurs asynchrones
      */
     private List<ObserverDeCapteurAsynch> observersC;
+    private TypeDiffusion typeDeDiff;
 
 
     public CapteurImpl(){
@@ -53,6 +54,7 @@ public class CapteurImpl implements Capteur {
     @Override
     public int getValue() {
        // System.out.println(compteur);
+        System.out.println("type "+typeDeDiff);
         return compteur;
     }
 
@@ -74,6 +76,11 @@ public class CapteurImpl implements Capteur {
 
         timer.scheduleAtFixedRate(task, new Date(), (long) delai);
 
+    }
+
+    @Override
+    public TypeDiffusion setTypeDeDiffu(TypeDiffusion type) {
+        return this.typeDeDiff = canal.getTypeDeDiffusion();
     }
 
 }

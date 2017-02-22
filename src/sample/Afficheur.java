@@ -58,14 +58,15 @@ public class Afficheur {
 
 
         });
-        Platform.runLater(() -> {
-            //this.controllerIHM.getAfficheur2().setText("2");
-
-        });
-
-        System.out.println("valeur du capteur "+capteur.getValue());
 
     }
+
+    public Capteur.TypeDiffusion getTypeDeDiffusion(){
+        return controllerIHM.getType();
+    }
+
+
+
 
 
 }
