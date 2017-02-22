@@ -35,7 +35,6 @@ public class Afficheur {
     public void update()  {
         //text.setText((int) newVal.doubleValue() + "");
        // c.getValue();
-        System.out.println("je suis dans le update de afficheur");
         Future<Integer> value = this.canal.getValue();
         int valeur = 0;
         try {
@@ -50,12 +49,10 @@ public class Afficheur {
         int valeurCapteur = capteur.getValue();
         Platform.runLater(() -> {
 
-
+           // System.out.println(this.controllerIHM);
             this.controllerIHM.getAfficheur1().setText(String.valueOf(finalValeur));
             this.controllerIHM.getAfficheur2().setText(String.valueOf(finalValeur));
             this.controllerIHM.getCapteur().setText(String.valueOf(valeurCapteur));
-
-
 
         });
 
@@ -64,9 +61,5 @@ public class Afficheur {
     public Capteur.TypeDiffusion getTypeDeDiffusion(){
         return controllerIHM.getType();
     }
-
-
-
-
 
 }

@@ -7,6 +7,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.Toggle;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.layout.AnchorPane;
 
 /**
  * Created by messadene on 21/02/17.
@@ -14,6 +15,7 @@ import javafx.scene.control.ToggleGroup;
 public class ControllerIHM {
 
 
+   
 
     @FXML
     private Label afficheur1;
@@ -38,22 +40,21 @@ public class ControllerIHM {
 
     private Capteur.TypeDiffusion type;
 
-    public ControllerIHM(){
-        typeDiffusion.selectedToggleProperty().addListener(new ChangeListener<Toggle>() {
-            public void changed(ObservableValue<? extends Toggle> ov, Toggle old_toggle, Toggle new_toggle) {
+    public void initialize() {
+        typeDiffusion.selectedToggleProperty().addListener((ov, old_toggle, new_toggle) -> {
 
-                if (typeDiffusion.getSelectedToggle() != null) {
-                    if (sequenciel.isSelected()) {
-                       setTypeDiffusion(Capteur.TypeDiffusion.sequentiel);
-                    } else if (atomique.isSelected()) {
-                        setTypeDiffusion(Capteur.TypeDiffusion.atomique);
-                    } else if (epoque.isSelected()) {
-                        setTypeDiffusion(Capteur.TypeDiffusion.epoque);
-                    }
+            if (typeDiffusion.getSelectedToggle() != null) {
+                if (sequenciel.isSelected()) {
+                    setTypeDiffusion(Capteur.TypeDiffusion.sequentiel);
+                } else if (atomique.isSelected()) {
+                    setTypeDiffusion(Capteur.TypeDiffusion.atomique);
+                } else if (epoque.isSelected()) {
+                    setTypeDiffusion(Capteur.TypeDiffusion.epoque);
                 }
-
             }
+
         });
+        System.out.println("le type dans controllerIHm "+getType());
     }
     public Label getAfficheur1() {
         return afficheur1;
@@ -72,5 +73,4 @@ public class ControllerIHM {
     public Capteur.TypeDiffusion getType(){
         return type;
     }
-
 }

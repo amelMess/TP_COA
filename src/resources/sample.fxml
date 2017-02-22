@@ -10,7 +10,8 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="475.0" prefWidth="450.0" style="-fx-background-color: #252553;" xmlns="http://javafx.com/javafx/8.0.112-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ControllerIHM">
+<?import javafx.scene.layout.AnchorPane?>
+<AnchorPane fx:id="Global" fx:controller="sample.ControllerIHM" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="475.0" prefWidth="450.0" style="-fx-background-color: #252553;" xmlns="http://javafx.com/javafx/8.0.112-ea" xmlns:fx="http://javafx.com/fxml/1" >
    <children>
        <Label fx:id="afficheur1" alignment="CENTER" disable="true" layoutX="138.0" layoutY="223.0" prefHeight="75.0" prefWidth="130.0" style="-fx-background-color: #ffffff;" textFill="#010101">
 
@@ -50,17 +51,18 @@
                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
            </rowConstraints>
            <children>
-               <RadioButton fx:id="sequenciel" mnemonicParsing="false" prefHeight="26.0" prefWidth="126.0" text="Sequentielle" textFill="WHITE" toggleGroup="$formeOnde">
-                   <toggleGroup>
-                       <ToggleGroup fx:id="formeOnde" />
-                   </toggleGroup>
+               <fx:define>
+                    <ToggleGroup fx:id="typeDiffusion" />
+               </fx:define>
+               <RadioButton fx:id="sequenciel" mnemonicParsing="false" prefHeight="26.0" prefWidth="126.0" text="Sequentielle" textFill="WHITE" toggleGroup="$typeDiffusion" selected="true">
+
                </RadioButton>
-               <RadioButton fx:id="atomique" mnemonicParsing="false" prefHeight="26.0" prefWidth="100.0" text="Atomique" textFill="WHITE" toggleGroup="$formeOnde" GridPane.columnIndex="2">
+               <RadioButton fx:id="atomique" mnemonicParsing="false" prefHeight="26.0" prefWidth="100.0" text="Atomique" textFill="WHITE" toggleGroup="$typeDiffusion" GridPane.columnIndex="2">
                </RadioButton>
-               <RadioButton fx:id="epoque" mnemonicParsing="false" prefHeight="26.0" prefWidth="84.0" text="Epoque" textFill="WHITE" toggleGroup="$formeOnde" GridPane.columnIndex="1">
+               <RadioButton fx:id="epoque" mnemonicParsing="false" prefHeight="26.0" prefWidth="84.0" text="Epoque" textFill="WHITE" toggleGroup="$typeDiffusion" GridPane.columnIndex="1">
 
                </RadioButton>
            </children>
        </GridPane>
    </children>
-</Pane>
+</AnchorPane>

@@ -1,10 +1,10 @@
 package sample;
 
 import javafx.application.Application;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.util.concurrent.Executors;
@@ -14,9 +14,11 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("sample.fxml"));
-        Parent root = loader.load();
+
+        FXMLLoader loader = new FXMLLoader();
+        AnchorPane root = loader.load(getClass().getClassLoader().getResource("resources/sample.fxml").openStream());
         ControllerIHM controllerIHM = loader.getController();
+        controllerIHM.initialize();
         Capteur capteur = new CapteurImpl();
         ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(5);
         Afficheur afficheur1 = new Afficheur(controllerIHM,capteur,scheduler);
