@@ -1,19 +1,17 @@
 package sample;
 
+import canal.Canal;
+import canal.CapteurAsynch;
 import javafx.application.Platform;
-import javafx.fxml.FXML;
-import javafx.scene.control.Label;
+import model.Capteur;
+import model.TypeDiffusion;
 
-import java.io.IOException;
-import java.util.Observable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 import java.util.concurrent.ScheduledExecutorService;
 
-import static jdk.nashorn.internal.runtime.Context.printStackTrace;
-
 /**
- * Created by messadene on 17/01/17.
+ * Afficheur : le concrete component
  */
 public class Afficheur {
 

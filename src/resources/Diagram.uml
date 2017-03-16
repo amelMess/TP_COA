@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="583.0953042328042" y="348.0">model.AtomiqueDiffusion</node>
+    <node x="459.0" y="92.0">sample.ControllerIHM</node>
+    <node x="762.5" y="522.0">sample.Main</node>
+    <node x="489.14887566137565" y="256.0">canal.Update</node>
+    <node x="552.2190476190477" y="0.0">model.Capteur</node>
+    <node x="685.5953042328042" y="256.0">model.AlgoDeDiffusion</node>
+    <node x="737.0" y="440.0">model.CapteurImpl</node>
+    <node x="771.0953042328042" y="348.0">model.SequentielDiffusion</node>
+    <node x="964.0953042328042" y="348.0">model.TypeDiffusion</node>
+    <node x="0.0" y="256.0">canal.ObserverDeCapteurAsynch</node>
+    <node x="299.5" y="348.0">canal.Canal</node>
+    <node x="301.0" y="92.0">canal.CapteurAsynch</node>
+    <node x="183.0" y="92.0">canal.GetValue</node>
+    <node x="475.5" y="174.0">sample.Afficheur</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="model.CapteurImpl" target="model.Capteur">
+      <point x="29.75" y="-16.0" />
+      <point x="826.25" y="410.0" />
+      <point x="953.5953042328042" y="410.0" />
+      <point x="953.5953042328042" y="52.0" />
+      <point x="634.8619047619048" y="52.0" />
+      <point x="38.14285714285714" y="16.0" />
+    </edge>
+    <edge source="sample.Afficheur" target="sample.ControllerIHM">
+      <point x="-19.799999999999955" y="-16.0" />
+      <point x="505.20000000000005" y="144.0" />
+      <point x="481.0" y="144.0" />
+      <point x="-44.0" y="16.0" />
+    </edge>
+    <edge source="canal.Canal" target="sample.Afficheur">
+      <point x="30.85714285714289" y="-16.0" />
+      <point x="366.3571428571429" y="328.0" />
+      <point x="583.6488756613757" y="328.0" />
+      <point x="583.6488756613757" y="231.0" />
+      <point x="558.0" y="231.0" />
+      <point x="33.0" y="16.0" />
+    </edge>
+    <edge source="model.SequentielDiffusion" target="model.Capteur">
+      <point x="43.0" y="-16.0" />
+      <point x="900.0953042328042" y="62.0" />
+      <point x="622.1476190476192" y="62.0" />
+      <point x="25.428571428571445" y="16.0" />
+    </edge>
+    <edge source="model.CapteurImpl" target="canal.Canal">
+      <point x="-29.75" y="-16.0" />
+      <point x="766.75" y="410.0" />
+      <point x="335.5" y="410.0" />
+      <point x="0.0" y="16.0" />
+    </edge>
+    <edge source="sample.Main" target="model.CapteurImpl">
+      <point x="0.0" y="-16.0" />
+      <point x="0.0" y="16.0" />
+    </edge>
+    <edge source="model.AtomiqueDiffusion" target="model.AlgoDeDiffusion">
+      <point x="41.75" y="-16.0" />
+      <point x="708.3453042328042" y="328.0" />
+      <point x="710.5953042328042" y="328.0" />
+      <point x="-50.0" y="16.0" />
+    </edge>
+    <edge source="sample.ControllerIHM" target="model.Capteur">
+      <point x="0.0" y="-16.0" />
+      <point x="525.0" y="72.0" />
+      <point x="584.004761904762" y="72.0" />
+      <point x="-12.714285714285722" y="16.0" />
+    </edge>
+    <edge source="model.AtomiqueDiffusion" target="model.Capteur">
+      <point x="-41.75" y="-16.0" />
+      <point x="624.8453042328042" y="72.0" />
+      <point x="609.4333333333334" y="72.0" />
+      <point x="12.714285714285722" y="16.0" />
+    </edge>
+    <edge source="model.SequentielDiffusion" target="model.AlgoDeDiffusion">
+      <point x="-43.0" y="-16.0" />
+      <point x="814.0953042328042" y="328.0" />
+      <point x="810.5953042328042" y="328.0" />
+      <point x="50.0" y="16.0" />
+    </edge>
+    <edge source="sample.Afficheur" target="canal.CapteurAsynch">
+      <point x="-39.599999999999966" y="-16.0" />
+      <point x="485.4" y="154.0" />
+      <point x="404.5" y="154.0" />
+      <point x="34.5" y="16.0" />
+    </edge>
+    <edge source="canal.Canal" target="canal.GetValue">
+      <point x="-20.571428571428555" y="-16.0" />
+      <point x="314.92857142857144" y="318.0" />
+      <point x="231.5" y="318.0" />
+      <point x="0.0" y="16.0" />
+    </edge>
+    <edge source="canal.Update" target="sample.Afficheur">
+      <point x="0.0" y="-16.0" />
+      <point x="531.1488756613757" y="231.0" />
+      <point x="525.0" y="231.0" />
+      <point x="0.0" y="16.0" />
+    </edge>
+    <edge source="canal.Canal" target="model.Capteur">
+      <point x="-10.285714285714278" y="-16.0" />
+      <point x="325.2142857142857" y="308.0" />
+      <point x="290.5" y="308.0" />
+      <point x="290.5" y="62.0" />
+      <point x="571.2904761904763" y="62.0" />
+      <point x="-25.428571428571445" y="16.0" />
+    </edge>
+    <edge source="sample.Afficheur" target="model.Capteur">
+      <point x="39.599999999999994" y="-16.0" />
+      <point x="564.5999999999999" y="154.0" />
+      <point x="601.5" y="154.0" />
+      <point x="601.5" y="72.0" />
+      <point x="596.7190476190477" y="72.0" />
+      <point x="0.0" y="16.0" />
+    </edge>
+    <edge source="sample.ControllerIHM" target="sample.Afficheur">
+      <point x="0.0" y="16.0" />
+      <point x="0.0" y="-16.0" />
+    </edge>
+    <edge source="canal.Canal" target="canal.ObserverDeCapteurAsynch">
+      <point x="-30.85714285714286" y="-16.0" />
+      <point x="304.6428571428571" y="328.0" />
+      <point x="165.75" y="328.0" />
+      <point x="55.25" y="16.0" />
+    </edge>
+    <edge source="model.CapteurImpl" target="model.TypeDiffusion">
+      <point x="49.583333333333314" y="-16.0" />
+      <point x="846.0833333333333" y="420.0" />
+      <point x="1029.5953042328042" y="420.0" />
+      <point x="0.0" y="16.0" />
+    </edge>
+    <edge source="canal.Canal" target="canal.CapteurAsynch">
+      <point x="0.0" y="-16.0" />
+      <point x="-34.5" y="16.0" />
+    </edge>
+    <edge source="canal.GetValue" target="model.Capteur">
+      <point x="0.0" y="-16.0" />
+      <point x="231.5" y="52.0" />
+      <point x="558.5761904761906" y="52.0" />
+      <point x="-38.14285714285711" y="16.0" />
+    </edge>
+    <edge source="sample.Afficheur" target="canal.Canal">
+      <point x="-33.0" y="16.0" />
+      <point x="492.0" y="231.0" />
+      <point x="449.8461309523809" y="231.0" />
+      <point x="449.8461309523809" y="308.0" />
+      <point x="345.7857142857143" y="308.0" />
+      <point x="10.285714285714278" y="-16.0" />
+    </edge>
+    <edge source="model.CapteurImpl" target="model.SequentielDiffusion">
+      <point x="9.916666666666657" y="-16.0" />
+      <point x="806.4166666666666" y="400.0" />
+      <point x="857.0953042328042" y="400.0" />
+      <point x="0.0" y="16.0" />
+    </edge>
+    <edge source="model.CapteurImpl" target="model.AlgoDeDiffusion">
+      <point x="-9.916666666666686" y="-16.0" />
+      <point x="786.5833333333333" y="400.0" />
+      <point x="760.5953042328042" y="400.0" />
+      <point x="0.0" y="16.0" />
+    </edge>
+    <edge source="canal.Canal" target="canal.Update">
+      <point x="20.571428571428555" y="-16.0" />
+      <point x="356.07142857142856" y="318.0" />
+      <point x="531.1488756613757" y="318.0" />
+      <point x="0.0" y="16.0" />
+    </edge>
+    <edge source="model.CapteurImpl" target="canal.ObserverDeCapteurAsynch">
+      <point x="-49.583333333333314" y="-16.0" />
+      <point x="746.9166666666666" y="420.0" />
+      <point x="55.25" y="420.0" />
+      <point x="-55.25" y="16.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="512.5" y="320.0" />
+  <SelectedNodes />
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

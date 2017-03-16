@@ -2,14 +2,19 @@ package sample;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import model.Capteur;
+import model.CapteurImpl;
+import model.TypeDiffusion;
 
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 
+/**
+ * classe principale
+ */
 public class Main extends Application {
 
     @Override
@@ -19,25 +24,17 @@ public class Main extends Application {
         AnchorPane root = loader.load(getClass().getClassLoader().getResource("resources/sample.fxml").openStream());
         ControllerIHM controllerIHM = loader.getController();
         Capteur capteur = new CapteurImpl();
-        ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(5);
+        ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(20);
         controllerIHM.initialize(capteur,scheduler);
 
-       // Afficheur afficheur1 = new Afficheur(controllerIHM,capteur,scheduler);
-        //Afficheur afficheur2 = new Afficheur(controllerIHM,capteur,scheduler);
-       // Afficheur afficheur1 = controllerIHM.getAfficheur();
-       // Afficheur afficheur2 = controllerIHM.getAfficheur();
-        /*capteur.attach(afficheur1.getCanal());
-        capteur.attach(afficheur2.getCanal());*/
-      //  Canal canal1 =  new Canal(capteur,afficheur1,scheduler);
-       // Canal canal2 =  new Canal(capteur,afficheur2,scheduler);
-        //canal1.update(capteur);
-        //canal2.update(capteur);
+
 
         //capteur.tick();
         TypeDiffusion type = TypeDiffusion.Sequentiel;
-        capteur.setStrategy(type);
+        //capteur.setStrategy(type);
+        capteur.setTypeDeDiffusion(type);
         primaryStage.setOnCloseRequest(x -> System.exit(0));
-        primaryStage.setTitle("Hello MINA");
+        primaryStage.setTitle("Hello");
         primaryStage.setScene(new Scene(root, 450, 475));
         primaryStage.show();
 

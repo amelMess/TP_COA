@@ -1,13 +1,9 @@
 package sample;
 
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.Toggle;
-import javafx.scene.control.ToggleGroup;
-import javafx.scene.layout.AnchorPane;
+import javafx.scene.control.*;
+import model.Capteur;
+import model.TypeDiffusion;
 
 import java.util.concurrent.ScheduledExecutorService;
 
@@ -65,12 +61,30 @@ public class ControllerIHM {
     private Afficheur afficheur;
 
     /**
+     * delai
+     */
+    @FXML
+    private Slider delai;
+
+    /**
+     * textField du delai
+     */
+    @FXML
+    private TextField delaiVue;
+
+    /**
+     * capteur model
+     */
+    private Capteur capteurM;
+
+    /**
      * initialize
      * @param capteur
      * @param scheduler
      */
     public void initialize(Capteur capteur, ScheduledExecutorService scheduler) {
         this.afficheur = new Afficheur(this,capteur,scheduler);
+        this.capteurM = capteur;
         typeDiffusion.selectedToggleProperty().addListener((ov, old_toggle, new_toggle) -> {
 
             if (typeDiffusion.getSelectedToggle() != null) {
@@ -84,6 +98,20 @@ public class ControllerIHM {
             }
 
         });
+       //
+        delaiVue.setText(this.capteurM.getDelai()+"");
+
+        delai.setValue(this.capteurM.getDelai());
+
+        delai.valueProperty().addListener((ov, oldVal, newVal) -> {
+            delai.setValue(newVal.intValue());
+
+            delaiVue.setText((int) newVal.doubleValue() + "");
+            capteurM.setDelai((int)delai.getValue());
+
+        });
+
+
     }
 
     /**
