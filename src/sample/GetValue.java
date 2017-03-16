@@ -12,11 +12,13 @@ public class GetValue implements Callable {
 
     public GetValue(Capteur capteur){
         this.capteur = capteur;
+        System.out.println("constructeur getvalue");
+
     }
 
     @Override
-    public Integer call() throws Exception {
-       // System.out.println("g "+capteur.getValue());
+    public Object call() throws Exception {
+        System.out.println("call get value "+capteur.getValue());
         return capteur.getValue();
     }
 }

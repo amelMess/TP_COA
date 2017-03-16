@@ -11,13 +11,15 @@ public class Update implements Callable {
 
 
     public Update(Afficheur afficheur){
+
         this.afficheur = afficheur;
+        System.out.println(" jai initialise mon afficheur ");
     }
 
     @Override
-    public Object call() throws Exception {
+    public Object call() {
         //System.out.println("u");
-
+        System.out.println("call de update");
         this.afficheur.update();
         return null;
     }

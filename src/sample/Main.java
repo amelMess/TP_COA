@@ -19,7 +19,7 @@ public class Main extends Application {
         AnchorPane root = loader.load(getClass().getClassLoader().getResource("resources/sample.fxml").openStream());
         ControllerIHM controllerIHM = loader.getController();
         Capteur capteur = new CapteurImpl();
-        ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(5);
+        ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(3);
         controllerIHM.initialize(capteur,scheduler);
 
        // Afficheur afficheur1 = new Afficheur(controllerIHM,capteur,scheduler);
@@ -34,8 +34,8 @@ public class Main extends Application {
         //canal2.update(capteur);
 
         //capteur.tick();
-        TypeDiffusion type = TypeDiffusion.Sequentiel;
-        capteur.setStrategy(type);
+       TypeDiffusion type = TypeDiffusion.Sequentiel;
+       capteur.setStrategy(type);
         primaryStage.setOnCloseRequest(x -> System.exit(0));
         primaryStage.setTitle("Hello MINA");
         primaryStage.setScene(new Scene(root, 450, 475));

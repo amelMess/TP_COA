@@ -41,6 +41,7 @@ public class Afficheur {
      */
     public void update()  {
 
+
         Future<Integer> value = this.canal.getValue();
         int valeur = 0;
         try {
@@ -53,28 +54,30 @@ public class Afficheur {
 
         int finalValeur = valeur;
         int valeurCapteur = capteur.getValue();
+        //System.out.println("final "+finalValeur);
+        System.out.println("valeur dans afficheur "+valeur);
+        System.out.println("valeur actuelle du capteur "+valeurCapteur);
+        Label capteur = this.controllerIHM.getCapteur();
+        Platform.runLater(() -> {
+            capteur.setText(String.valueOf(valeurCapteur));
 
+        });
         Platform.runLater(() -> {
 
-           // System.out.println(this.controllerIHM);
-            this.controllerIHM.getCapteur().setText(String.valueOf(valeurCapteur));
+           // System.out.println(this.controllerIHM.getCapteur());
+
             this.controllerIHM.getAfficheur1().setText(String.valueOf(finalValeur));
+            System.out.println("je l'ai affiche");
 
         });
         Platform.runLater(() ->{
             this.controllerIHM.getAfficheur2().setText(String.valueOf(finalValeur));
+            this.controllerIHM.getAfficheur3().setText(String.valueOf(finalValeur));
+
 
         });
 
     }
 
 
-    /**
-     * recupere le type de diffusion selectionnée
-     * @param typeDiffusion le type de diffusion
-     */
-    public void setTypeDiffusion(TypeDiffusion typeDiffusion) {
-        System.out.println("dans afficheur "+typeDiffusion.toString());
-        this.capteur.setTypeDeDiffusion(typeDiffusion);
-    }
 }

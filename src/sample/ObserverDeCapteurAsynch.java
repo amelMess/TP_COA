@@ -1,7 +1,7 @@
 package sample;
 
-import java.util.*;
 import java.util.concurrent.Future;
+import java.util.concurrent.ScheduledFuture;
 
 /**
  * Created by messadene on 17/01/17.

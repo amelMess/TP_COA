@@ -29,6 +29,12 @@ public class ControllerIHM {
     private Label afficheur2;
 
     /**
+     * afficheur 3
+     */
+    @FXML
+    private Label afficheur3;
+
+    /**
      * capteur
      */
     @FXML
@@ -64,22 +70,26 @@ public class ControllerIHM {
      */
     private Afficheur afficheur;
 
+    private Capteur mcapteur;
     /**
      * initialize
      * @param capteur
      * @param scheduler
      */
     public void initialize(Capteur capteur, ScheduledExecutorService scheduler) {
+        this.mcapteur = capteur;
         this.afficheur = new Afficheur(this,capteur,scheduler);
         typeDiffusion.selectedToggleProperty().addListener((ov, old_toggle, new_toggle) -> {
 
             if (typeDiffusion.getSelectedToggle() != null) {
                 if (sequentiel.isSelected()) {
-                    afficheur.setTypeDiffusion(TypeDiffusion.Sequentiel);
+                    this.mcapteur.setStrategy(TypeDiffusion.Sequentiel);
                 } else if (atomique.isSelected()) {
-                    afficheur.setTypeDiffusion(TypeDiffusion.Atomique);
+                    this.mcapteur.setStrategy(TypeDiffusion.Atomique);
+
                 } else if (epoque.isSelected()) {
-                    afficheur.setTypeDiffusion(TypeDiffusion.Epoque);
+                    this.mcapteur.setStrategy(TypeDiffusion.Epoque);
+
                 }
             }
 
@@ -101,6 +111,15 @@ public class ControllerIHM {
     public Label getAfficheur2() {
         return afficheur2;
     }
+
+    /**
+     * retourne le label du 3eme afficheur
+     * @return afficheur3
+     */
+    public Label getAfficheur3() {
+        return afficheur3;
+    }
+
 
     /**
      * retourne le label du 1capteur

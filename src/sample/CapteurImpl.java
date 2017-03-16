@@ -39,7 +39,7 @@ public class CapteurImpl implements Capteur {
 
     public CapteurImpl(){
         this.compteur = 0;
-        this.delai = 1000 ;
+        this.delai = 2000 ;
         this.observersC = new ArrayList<>();
         timer = new Timer();
     }
@@ -62,57 +62,50 @@ public class CapteurImpl implements Capteur {
     }
 
 
-
-
     @Override
     public void tick() {
         Capteur capt = this;
         task = new TimerTask() {
             public void run() {
-                compteur ++;
+               // compteur ++;
+                setCompteur();
                 for(ObserverDeCapteurAsynch c : observersC) {
-                    //System.out.println("c "+c);
+                    System.out.println("c "+c);
                     c.update(capt);
                 }
             }
         };
         timer.scheduleAtFixedRate(task, new Date(), (long) delai);
-
     }
 
     @Override
     public void setStrategy(TypeDiffusion typeDeDiff){
-        System.out.println(" dans strategy "+typeDeDiff.toString());
         strategy  = null;
         switch (typeDeDiff){
-            case Sequentiel: strategy = new SequentielDiffusion(this);
-                            break;
-            case Atomique:
-                this.compteur =100;
+            case Sequentiel:
+                this.compteur = 0;
                 strategy = new SequentielDiffusion(this);
+                break;
+            case Atomique:
+                this.compteur = 0;
+                strategy = new AtomiqueDiffusion(this);
                             break;
             case Epoque:
-                this.compteur = 1000;
+                this.compteur = 0;
                 strategy = new SequentielDiffusion(this);
                 break;
             default:
                     System.out.println("hello");
         }
+        System.out.println("je diffuse "+typeDeDiff.toString());
         strategy.diffuser();
-        System.out.println(" strategy "+strategy.toString());
+       // System.out.println(" strategy "+strategy.toString());
     }
 
-    @Override
-    public void setTypeDeDiffusion(TypeDiffusion type) {
-
-        this.typeDeDiff = type;
-        setStrategy(this.typeDeDiff);
-        System.out.println(type.toString());
-    }
 
     @Override
     public void setCompteur() {
-        this.compteur++;
+        ++compteur;
     }
 
     @Override
@@ -129,5 +122,12 @@ public class CapteurImpl implements Capteur {
     public List<ObserverDeCapteurAsynch> getObservers() {
         return observersC;
     }
+
+    @Override
+    public Timer getTimer() {
+        return timer;
+    }
+
+
 
 }
