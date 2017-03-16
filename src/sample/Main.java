@@ -24,15 +24,19 @@ public class Main extends Application {
         AnchorPane root = loader.load(getClass().getClassLoader().getResource("resources/sample.fxml").openStream());
         ControllerIHM controllerIHM = loader.getController();
         Capteur capteur = new CapteurImpl();
+
         ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(20);
+
         controllerIHM.initialize(capteur,scheduler);
 
 
 
         //capteur.tick();
+
         TypeDiffusion type = TypeDiffusion.Sequentiel;
         //capteur.setStrategy(type);
         capteur.setTypeDeDiffusion(type);
+
         primaryStage.setOnCloseRequest(x -> System.exit(0));
         primaryStage.setTitle("Hello");
         primaryStage.setScene(new Scene(root, 450, 475));

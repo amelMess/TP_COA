@@ -58,8 +58,8 @@ public class CapteurImpl implements Capteur {
      */
     @Override
     public int getValue() {
-       // System.out.println(compteur);
-       // System.out.println("type "+typeDeDiff);
+        // System.out.println(compteur);
+        // System.out.println("type "+typeDeDiff);
         return compteur;
     }
 
@@ -89,23 +89,23 @@ public class CapteurImpl implements Capteur {
     @Override
     public void setStrategy(TypeDiffusion typeDeDiff){
         System.out.println(" dans strategy "+typeDeDiff.toString());
-       // strategy  = null;
+        // strategy  = null;
         switch (typeDeDiff){
             case Sequentiel:
 
                 strategy = new SequentielDiffusion(this);
                 //this.tick();
-                            break;
+                break;
             case Atomique:
 
                 strategy = new SequentielDiffusion(this);
-                            break;
+                break;
             case Epoque:
 
                 strategy = new SequentielDiffusion(this);
                 break;
             default:
-                    System.out.println("hello");
+                System.out.println("hello");
         }
         strategy.diffuser(this.observersC);
     }
@@ -149,7 +149,7 @@ public class CapteurImpl implements Capteur {
     @Override
     public void setDelai(int newValue) {
         this.delai = newValue;
-       // System.out.println(" nouvelle valeur, je recommence "+newValue);
+        // System.out.println(" nouvelle valeur, je recommence "+newValue);
         setStrategy(typeDeDiff);
     }
 

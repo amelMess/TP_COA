@@ -8,6 +8,7 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.concurrent.TimeUnit;
 
+
 /**
  * classe proxy
  * implement le capteurAsynch et ObserverDeCapteurAsynch
@@ -37,9 +38,10 @@ public class Canal implements CapteurAsynch, ObserverDeCapteurAsynch {
      */
     @Override
     public Future<Integer> update(Capteur capteur) {
+
         this.capteur = capteur;
         int delai = ThreadLocalRandom.current().nextInt(200, 1100);
-        Update update = new Update(afficheur);
+        Update update = new Update(this.afficheur);
         return scheduler.schedule(update,delai, TimeUnit.MILLISECONDS);
     }
 
@@ -49,6 +51,7 @@ public class Canal implements CapteurAsynch, ObserverDeCapteurAsynch {
      */
     @Override
     public Future<Integer> getValue() {
+
         GetValue getValue = new GetValue(capteur);
         int delai = ThreadLocalRandom.current().nextInt(200, 1100);
         return scheduler.schedule(getValue,delai,TimeUnit.MILLISECONDS);
